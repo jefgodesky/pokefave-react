@@ -28,7 +28,8 @@
     "eject": "react-scripts eject",
     "jest": "react-scripts test",
     "lint": "ts-standard",
-    "lint-fix": "ts-standard --fix"
+    "lint-fix": "ts-standard --fix",
+    "sass": "node compile-sass.js"
   },
   "eslintConfig": {
     "extends": [
