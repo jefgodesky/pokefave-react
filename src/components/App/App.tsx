@@ -1,8 +1,11 @@
 import React, { ReactElement } from 'react'
+import Tab from '../Tab/Tab'
 
 function App (): ReactElement {
   return (
-    <h1>What’s your favorite Pokémon?</h1>
+    <nav>
+      <Tab label='Pokédex' active />
+    </nav>
   )
 }
 
