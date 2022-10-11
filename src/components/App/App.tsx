@@ -22,6 +22,7 @@ function App ({ testing }: AppProps): ReactElement {
   return (
     <>
       <nav>
+        <p>Sort by</p>
         <Tab label='Pokédex' active />
         <Tab label='A-Z' />
         <Tab label='Faves Only' />
