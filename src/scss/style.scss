@@ -45,6 +45,11 @@ main {
 nav {
   text-align: right;
 
+  p {
+    display: inline;
+    margin: 0 1em 0 0;
+  }
+
   button {
     appearance: none;
     border: 0;
