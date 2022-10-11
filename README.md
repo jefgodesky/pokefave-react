@@ -117,7 +117,8 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode. Open 
+Compiles Sass into CSS and then runs the app 
+in development mode. Open 
 [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits. You 
 will also see any lint errors in the console.
@@ -126,6 +127,13 @@ will also see any lint errors in the console.
 
 Lints code to Standard TS and then launches the 
 test runner in the interactive watch mode.
+
+### `npm run dev`
+
+Runs the app in development mode. Open
+[http://localhost:3000](http://localhost:3000) to view it in the browser.
+The page will reload if you make edits. You
+will also see any lint errors in the console.
 
 ### `npm run build`
 
@@ -146,6 +154,10 @@ Lints code to Standard TS and reports errors.
 
 Lints code to Standard TS, fixes what problems 
 it can, and reports what it can't.
+
+### `npm run sass`
+
+Compiles Sass into CSS.
 
 ### `npm run eject`
 

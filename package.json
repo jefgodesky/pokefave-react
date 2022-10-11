@@ -22,10 +22,11 @@
     "ts-standard": "^12.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm-run-all sass dev",
     "build": "react-scripts build",
     "test": "npm-run-all lint jest",
     "eject": "react-scripts eject",
+    "dev": "react-scripts start",
     "jest": "react-scripts test",
     "lint": "ts-standard",
     "lint-fix": "ts-standard --fix",
