@@ -1,3 +1,4 @@
+@use 'colors';
 @use 'vars';
 
 html,
@@ -54,7 +55,7 @@ nav {
     appearance: none;
     border: 0;
     background: #fff;
-    border-radius: 1em;
+    border-radius: vars.$corner-radius;
     box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.5);
     cursor: pointer;
     font-size: 0.75em;
@@ -76,5 +77,35 @@ nav {
     @media (min-width: 40em) {
       font-size: 1.25em;
     }
+  }
+}
+
+.pokemon-list {
+  height: 80vh;
+  margin-top: 1em;
+  overflow-y: auto;
+}
+
+article {
+  background: colors.$normal;
+  border-radius: vars.$corner-radius;
+  margin: 0 0.5em 0.5em 0.5em;
+  padding: 1em 2em;
+
+  h2,
+  .pokedex {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.25em;
+
+    @media (min-width: 40em) {
+      font-size: 1.5em;
+    }
+  }
+
+  .pokedex {
+    opacity: 0.75;
   }
 }
