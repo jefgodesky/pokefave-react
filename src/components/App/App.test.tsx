@@ -2,8 +2,25 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import App from './App'
 
-test('renders learn react link', () => {
-  render(<App />)
-  const h1 = screen.getByText(/what’s your favorite pokémon?/i)
-  expect(h1).toBeInTheDocument()
+describe('App', () => {
+  it('renders the Pokédex sorting button', () => {
+    render(<App />)
+    const btn = screen.getByText('Pokédex')
+    expect(btn).toBeInTheDocument()
+    expect(btn).toHaveClass('active')
+  })
+
+  it('renders the A-Z sorting button', () => {
+    render(<App />)
+    const btn = screen.getByText('A-Z')
+    expect(btn).toBeInTheDocument()
+    expect(btn).not.toHaveClass('active')
+  })
+
+  it('renders the Faves Only sorting button', () => {
+    render(<App />)
+    const btn = screen.getByText('Faves Only')
+    expect(btn).toBeInTheDocument()
+    expect(btn).not.toHaveClass('active')
+  })
 })
