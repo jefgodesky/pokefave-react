@@ -1,3 +1,4 @@
+@use 'colors';
 @use 'vars';
 
 html,
@@ -39,5 +40,72 @@ main {
 
   @media (min-width: 60em) {
     margin: 10vh auto 0 auto;
+  }
+}
+
+nav {
+  text-align: right;
+
+  p {
+    display: inline;
+    margin: 0 1em 0 0;
+  }
+
+  button {
+    appearance: none;
+    border: 0;
+    background: #fff;
+    border-radius: vars.$corner-radius;
+    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    font-size: 0.75em;
+    font-weight: 700;
+    margin: 0 0.5em 0 0;
+    padding: 0.5em 1em;
+
+    &:hover {
+      background: #ffffe0;
+    }
+
+    &.active,
+    &:active {
+      background: #f00;
+      box-shadow: inset 0 0 0.25em rgba(0, 0, 0, 0.5);
+      color: #fff;
+    }
+
+    @media (min-width: 40em) {
+      font-size: 1.25em;
+    }
+  }
+}
+
+.pokemon-list {
+  height: 80vh;
+  margin-top: 1em;
+  overflow-y: auto;
+}
+
+article {
+  background: colors.$normal;
+  border-radius: vars.$corner-radius;
+  margin: 0 0.5em 0.5em 0.5em;
+  padding: 1em 2em;
+
+  h2,
+  .pokedex {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.25em;
+
+    @media (min-width: 40em) {
+      font-size: 1.5em;
+    }
+  }
+
+  .pokedex {
+    opacity: 0.75;
   }
 }
