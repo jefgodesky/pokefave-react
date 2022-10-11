@@ -9,4 +9,11 @@ describe('App', () => {
     expect(btn).toBeInTheDocument()
     expect(btn).toHaveClass('active')
   })
+
+  it('renders the A-Z sorting button', () => {
+    render(<App />)
+    const btn = screen.getByText('A-Z')
+    expect(btn).toBeInTheDocument()
+    expect(btn).not.toHaveClass('active')
+  })
 })
