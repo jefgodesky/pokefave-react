@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { getList } from '../../test-data'
 import App from './App'
 
 describe('App', () => {
@@ -24,9 +25,10 @@ describe('App', () => {
     expect(btn).not.toHaveClass('active')
   })
 
-  it('tells us how many Pokémon we have', () => {
+  it('lists our Pokémon', () => {
     render(<App testing />)
-    const count = screen.getByText('3 Pokémon')
-    expect(count).toBeInTheDocument()
+    expect(screen.getByText('Bulbasaur')).toBeInTheDocument()
+    expect(screen.getByText('Charmander')).toBeInTheDocument()
+    expect(screen.getByText('Squirtle')).toBeInTheDocument()
   })
 })

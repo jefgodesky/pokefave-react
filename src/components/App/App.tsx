@@ -3,6 +3,7 @@ import PokeData from '../../data/pokedeata'
 import { getList } from '../../test-data'
 import getPokemon from '../../data/get-pokemon'
 import Tab from '../Tab/Tab'
+import Pokemon from '../Pokemon/Pokemon'
 
 interface AppProps {
   testing?: boolean
@@ -19,6 +20,8 @@ function App ({ testing }: AppProps): ReactElement {
     }
   }, [testing])
 
+  const articles = pokemon.map(data => (<Pokemon key={data.pokedex} data={data} />))
+
   return (
     <>
       <nav>
@@ -27,7 +30,9 @@ function App ({ testing }: AppProps): ReactElement {
         <Tab label='A-Z' />
         <Tab label='Faves Only' />
       </nav>
-      <p>{pokemon.length} Pokémon</p>
+      <div className='pokemon-list'>
+        {articles}
+      </div>
     </>
   )
 }
