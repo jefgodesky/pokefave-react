@@ -23,8 +23,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "npm-run-all lint jest",
+    "eject": "react-scripts eject",
+    "jest": "react-scripts test",
+    "lint": "ts-standard",
+    "lint-fix": "ts-standard --fix"
   },
   "eslintConfig": {
     "extends": [
