@@ -16,4 +16,11 @@ describe('App', () => {
     expect(btn).toBeInTheDocument()
     expect(btn).not.toHaveClass('active')
   })
+
+  it('renders the Faves Only sorting button', () => {
+    render(<App />)
+    const btn = screen.getByText('Faves Only')
+    expect(btn).toBeInTheDocument()
+    expect(btn).not.toHaveClass('active')
+  })
 })

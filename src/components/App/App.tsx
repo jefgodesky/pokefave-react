@@ -6,6 +6,7 @@ function App (): ReactElement {
     <nav>
       <Tab label='Pokédex' active />
       <Tab label='A-Z' />
+      <Tab label='Faves Only' />
     </nav>
   )
 }
