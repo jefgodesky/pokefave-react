@@ -11,8 +11,8 @@ import PokeData from './pokedeata'
 
 const sortByPokedex = (arr: PokeData[]): PokeData[] => {
   const copy = [...arr]
-  arr.sort((a, b) => a.pokedex - b.pokedex)
-  return arr
+  copy.sort((a, b) => a.pokedex - b.pokedex)
+  return copy
 }
 
 export default sortByPokedex
