@@ -3,6 +3,7 @@ import PokeData from '../../data/pokedeata'
 import { getList } from '../../test-data'
 import getPokemon from '../../data/get-pokemon'
 import loadPokemon from '../../data/load-pokemon'
+import toggleFave from '../../data/toggle-fave'
 import Tab from '../Tab/Tab'
 import Pokemon from '../Pokemon/Pokemon'
 
@@ -12,6 +13,8 @@ interface AppProps {
 
 function App ({ testing }: AppProps): ReactElement {
   const [pokemon, setPokemon] = useState<PokeData[]>([])
+  const load = loadPokemon(pokemon, setPokemon)
+  const toggle = toggleFave(pokemon, setPokemon)
 
   useEffect(() => {
     if (testing === true) {
@@ -21,8 +24,7 @@ function App ({ testing }: AppProps): ReactElement {
     }
   }, [testing])
 
-  const load = loadPokemon(pokemon, setPokemon)
-  const articles = pokemon.map(data => (<Pokemon key={data.pokedex} data={data} load={load} />))
+  const articles = pokemon.map(data => (<Pokemon key={data.pokedex} data={data} load={load} toggle={toggle} />))
 
   return (
     <>

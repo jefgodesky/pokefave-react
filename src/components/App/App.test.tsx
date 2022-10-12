@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import App from './App'
 
 describe('App', () => {
@@ -38,5 +39,13 @@ describe('App', () => {
     expect(screen.getByText('Bulbasaur')).toBeInTheDocument()
     expect(screen.getByText('Charmander')).toBeInTheDocument()
     expect(screen.getByText('Squirtle')).toBeInTheDocument()
+  })
+
+  it('marks a Pokémon as favorite when clicked', () => {
+    render(<App testing />)
+    const bulbasaur = screen.getByText('Bulbasaur')
+    const btn = bulbasaur.parentElement?.querySelector('button.fave')
+    userEvent.click(btn as Element)
+    expect(btn).toHaveClass('is-fave')
   })
 })
