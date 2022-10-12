@@ -168,3 +168,70 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Where to go from here?
+
+If this weren’t just a demonstration and we 
+were looking to take this further, the first 
+thing that I would recommend we look at is the 
+fact that it is a very out-of-the-bex 
+`create-react-app` app, meaning that the HTML 
+is only an empty `<main>` tag, so if anything 
+happens to our JavaScript (as we can expect to 
+happen on 3% of visits if we’re catering to a 
+typical U.S. audience), our users will receive 
+only a blank white page. They won’t even 
+receive the `<noscript>` warning, as that’s 
+only rendered on browsers that are too old to 
+run JavaScript or when the user has actually 
+disabled it, which account for a tiny minority 
+of incidents.
+
+The easiest way to do this with the current 
+codebase would be to set up a simple 
+Node/Express server which can provide a 
+server-side rendered version of the app. With 
+a little bit of modification, we could at 
+least give users a little bit better idea of 
+what happened when something goes wrong.
+
+But moving to server-side rendering also 
+raises the possibility of calling all of our 
+needed resources from the PokéAPI just once, 
+persisting that data server-side, and 
+eliminating the client-side API call 
+altogether, moving the burden from our clients 
+to our servers, which only have to do it once, 
+and probably have better hardware for it anyway.
+
+This also sets us up to consider a CD pipeline.
+Setting up a CD pipeline is critical for 
+getting a proper feedback loop, as it allows 
+us to share our work with users and get 
+feedback from them right away. We could set up 
+a CD pipeline for this project as it stands, 
+without moving to server-side rendering, but 
+it would certainly be more substantive in that 
+case.
+
+Since this project is already on Github, I 
+would look at Github Actions to set up a CD 
+pipeline first, unless other technical 
+considerations were raised beyond any 
+discussed so far.
+
+We have some persistence right now with local 
+storage. It wasn’t required by the project, 
+but it _was_ required by the PokéAPI, which 
+included in its Fair Use Policy that we should 
+cache any resources that we request. Local 
+storage doesn’t provide the most reliable 
+persistence, though, and it won’t allow users 
+to access their favorites from different 
+devices. For that, we would need to use a 
+store like Redis, files saved on the server or,
+most likely, a database. We would need to 
+implement OAuth 2.0 authentication so that a 
+user on a laptop can tell us that she’s the 
+same person who favorited Eevee and Flameon on 
+her phone an hour ago.
