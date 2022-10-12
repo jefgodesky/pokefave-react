@@ -62,4 +62,11 @@ describe('App', () => {
     userEvent.click(az as Element)
     expect(az).toHaveClass('active')
   })
+
+  it('filters to just favorites', () => {
+    render(<App testing />)
+    const faves = screen.getByText('Faves Only')
+    userEvent.click(faves as Element)
+    expect(faves).toHaveClass('active')
+  })
 })
