@@ -48,4 +48,18 @@ describe('App', () => {
     userEvent.click(btn as Element)
     expect(btn).toHaveClass('is-fave')
   })
+
+  it('sorts by Pokédex', () => {
+    render(<App testing />)
+    const pokedex = screen.getByText('Pokédex')
+    userEvent.click(pokedex as Element)
+    expect(pokedex).toHaveClass('active')
+  })
+
+  it('sorts by name', () => {
+    render(<App testing />)
+    const az = screen.getByText('A-Z')
+    userEvent.click(az as Element)
+    expect(az).toHaveClass('active')
+  })
 })
