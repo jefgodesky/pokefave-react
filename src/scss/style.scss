@@ -120,4 +120,30 @@ article {
   .pokedex {
     opacity: 0.75;
   }
+
+  &.bug      { background: colors.$bug;      }
+  &.dark     { background: colors.$dark;     }
+  &.dragon   { background: colors.$dragon;   }
+  &.electric { background: colors.$electric; }
+  &.fairy    { background: colors.$fairy;    }
+  &.fighting { background: colors.$fighting; }
+  &.fire     { background: colors.$fire;     }
+  &.flying   { background: colors.$flying;   }
+  &.ghost    { background: colors.$ghost;    }
+  &.grass    { background: colors.$grass;    }
+  &.ground   { background: colors.$ground;   }
+  &.ice      { background: colors.$ice;      }
+  &.poison   { background: colors.$poison;   }
+  &.psychic  { background: colors.$psychic;  }
+  &.rock     { background: colors.$rock;     }
+  &.steel    { background: colors.$steel;    }
+  &.water    { background: colors.$water;    }
+
+  &.dark,
+  &.dragon,
+  &.fighting,
+  &.ghost,
+  &.poison {
+    color: #fff;
+  }
 }
