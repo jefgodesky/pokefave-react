@@ -27,4 +27,11 @@ describe('Pokemon', () => {
     const name = screen.getByText('Bulbasaur')
     expect(name).toBeInTheDocument()
   })
+
+  it('renders type icons', () => {
+    const squirtle = getPokemon(7)
+    render(<Pokemon data={squirtle} load={() => {}} />)
+    const icon = screen.getByAltText('Water type Pokémon')
+    expect(icon).toBeInTheDocument()
+  })
 })
