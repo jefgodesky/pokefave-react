@@ -19,12 +19,13 @@ import savePokemon from './save-pokemon'
 
 const loadPokemon = (pokemon: PokeData[], setter: Function): Function => {
   return async (data: PokeData): Promise<void> => {
-    const update = await fetchPokemon(data)
-    update.loaded = true
-    pokemon[getIndexFromPokedex(pokemon, data.pokedex)] = update
+    const index = getIndexFromPokedex(pokemon, data.pokedex)
+    if (index < 0 || pokemon[index].loaded) return
+    pokemon[index].loaded = true
+    pokemon[index] = await fetchPokemon(data)
     savePokemon(pokemon)
     setter([...pokemon])
   }
- }
+}
 
- export default loadPokemon
+export default loadPokemon
