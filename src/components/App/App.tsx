@@ -32,7 +32,8 @@ function App ({ testing }: AppProps): ReactElement {
     setSortOrder(order)
   }
 
-  const articles = pokemon.map(data => (<Pokemon key={data.pokedex} data={data} load={load} toggle={toggle} />))
+  const list = sortOrder === 'faves' ? pokemon.filter(pokemon => pokemon.isFavorite) : pokemon
+  const articles = list.map(data => (<Pokemon key={data.pokedex} data={data} load={load} toggle={toggle} />))
 
   return (
     <>
@@ -40,7 +41,7 @@ function App ({ testing }: AppProps): ReactElement {
         <p>Sort by</p>
         <Tab label='Pokédex' active={sortOrder === 'pokedex'} onClick={() => { sort(sortByPokedex, 'pokedex') }} />
         <Tab label='A-Z' active={sortOrder === 'az'} onClick={() => { sort(sortByName, 'az') }} />
-        <Tab label='Faves Only' active={sortOrder === 'faves'} onClick={() => {}} />
+        <Tab label='Faves Only' active={sortOrder === 'faves'} onClick={() => { sort(sortByName, 'faves') }} />
       </nav>
       <div className='pokemon-list'>
         {articles}
