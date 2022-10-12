@@ -90,7 +90,19 @@ article {
   background: colors.$normal;
   border-radius: vars.$corner-radius;
   margin: 0 0.5em 0.5em 0.5em;
+  overflow: auto;
   padding: 1em 2em;
+
+  & > img {
+
+    height: 4em;
+    margin: 0 1em 0 0;
+
+    @media (min-width: 40em) {
+      float: left;
+      height: 6em;
+    }
+  }
 
   h2,
   .pokedex {
