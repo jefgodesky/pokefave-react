@@ -1,9 +1,8 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { getPokemon } from '../../test-data'
 import Pokemon from './Pokemon'
-import Fave from "../Fave/Fave";
-import userEvent from "@testing-library/user-event";
 
 describe('Pokemon', () => {
   const bulbasaur = getPokemon(1)
