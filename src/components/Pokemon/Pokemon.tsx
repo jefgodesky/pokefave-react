@@ -7,9 +7,10 @@ import PokemonTypeIcon from '../PokemonTypeIcon/PokemonTypeIcon'
 interface PokemonProps {
   data: PokeData
   load: Function
+  toggle: Function
 }
 
-function Pokemon ({ data, load }: PokemonProps): ReactElement {
+function Pokemon ({ data, load, toggle }: PokemonProps): ReactElement {
   const { loaded, pokedex, name, image, types, isFavorite } = data
   const ref = useRef<HTMLElement>() as MutableRefObject<HTMLElement>
   const isVisible = useOnScreen(ref)
@@ -19,7 +20,7 @@ function Pokemon ({ data, load }: PokemonProps): ReactElement {
   return (
     <article ref={ref} className={types[0] ?? 'normal'}>
       <img src={image ?? 'pokeball.png'} alt={name} />
-      <Fave active={isFavorite} />
+      <Fave active={isFavorite} onClick={() => { toggle(data) }} />
       <p className='pokedex'>#{pokedex.toString().padStart(3, '0')}</p>
       <h2>{name}</h2>
       <ul className='types'>
