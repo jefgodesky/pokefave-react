@@ -121,6 +121,22 @@ article {
     opacity: 0.75;
   }
 
+  .types {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li,
+    img {
+      display: inline;
+    }
+
+    img {
+      height: 2em;
+    }
+  }
+
   &.bug      { background: colors.$bug;      }
   &.dark     { background: colors.$dark;     }
   &.dragon   { background: colors.$dragon;   }
