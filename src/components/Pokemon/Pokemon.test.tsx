@@ -2,7 +2,6 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { getPokemon } from '../../test-data'
 import Pokemon from './Pokemon'
-import PokemonTypeIcon from "../PokemonTypeIcon/PokemonTypeIcon";
 
 describe('Pokemon', () => {
   const bulbasaur = getPokemon(1)
