@@ -62,7 +62,7 @@ const mapPokemonRecord = (result: PokeAPIResult): PokeData => ({
  *   PokeData objects.
  */
 
-const fetchPokemonList = async (): Promise<PokeData[]> => {
+const getPokemon = async (): Promise<PokeData[]> => {
   const cacheStr = localStorage.getItem('pokemon')
   const cache = cacheStr !== null ? JSON.parse(cacheStr) : []
   if (isPokeDataArray(cache) && cache.length > 0) return cache
@@ -73,5 +73,5 @@ const fetchPokemonList = async (): Promise<PokeData[]> => {
   return data
 }
 
-export default fetchPokemonList
+export default getPokemon
 export { getPokedexFromURL, getNameFromSlug, mapPokemonRecord }

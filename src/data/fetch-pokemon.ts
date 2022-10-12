@@ -23,7 +23,6 @@ const clone = rfdc()
 
 const fetchPokemon = async (pokemon: PokeData): Promise<PokeData> => {
   const update = clone(pokemon)
-  if (pokemon.loaded) return update
   const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${update.pokedex}`)
   update.loaded = true
   update.image = response?.data.sprites.other['official-artwork'].front_default

@@ -1,9 +1,17 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { getList } from '../../test-data'
 import App from './App'
 
 describe('App', () => {
+  beforeEach(() => {
+    const mockIntersectionObserver = jest.fn()
+    mockIntersectionObserver.mockReturnValue({
+      observe: () => null,
+      disconnect: () => null
+    })
+    window.IntersectionObserver = mockIntersectionObserver
+  })
+
   it('renders the Pokédex sorting button', () => {
     render(<App testing />)
     const btn = screen.getByText('Pokédex')

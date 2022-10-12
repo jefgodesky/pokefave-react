@@ -2,6 +2,7 @@ import React, { ReactElement, useEffect, useState } from 'react'
 import PokeData from '../../data/pokedeata'
 import { getList } from '../../test-data'
 import getPokemon from '../../data/get-pokemon'
+import loadPokemon from '../../data/load-pokemon'
 import Tab from '../Tab/Tab'
 import Pokemon from '../Pokemon/Pokemon'
 
@@ -20,7 +21,8 @@ function App ({ testing }: AppProps): ReactElement {
     }
   }, [testing])
 
-  const articles = pokemon.map(data => (<Pokemon key={data.pokedex} data={data} />))
+  const load = loadPokemon(pokemon, setPokemon)
+  const articles = pokemon.map(data => (<Pokemon key={data.pokedex} data={data} load={load} />))
 
   return (
     <>
