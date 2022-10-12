@@ -20,7 +20,7 @@ function Pokemon ({ data, load, toggle }: PokemonProps): ReactElement {
   return (
     <article ref={ref} className={types[0] ?? 'normal'}>
       <img src={image ?? 'pokeball.png'} alt={name} />
-      <Fave active={isFavorite} onClick={toggle} />
+      <Fave active={isFavorite} onClick={toggle(data)} />
       <p className='pokedex'>#{pokedex.toString().padStart(3, '0')}</p>
       <h2>{name}</h2>
       <ul className='types'>
