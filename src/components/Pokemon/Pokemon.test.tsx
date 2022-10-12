@@ -34,4 +34,19 @@ describe('Pokemon', () => {
     const icon = screen.getByAltText('Water type Pokémon')
     expect(icon).toBeInTheDocument()
   })
+
+  it('renders fave icon', () => {
+    const { container } = render(<Pokemon data={bulbasaur} load={() => {}} />)
+    const btn = container.querySelector('button')
+    expect(btn).toHaveClass('fave')
+    expect(btn).not.toHaveClass('is-fave')
+  })
+
+  it('indicates that this is one of your favorite Pokémon', () => {
+    bulbasaur.isFavorite = true
+    const { container } = render(<Pokemon data={bulbasaur} load={() => {}} />)
+    const btn = container.querySelector('button')
+    expect(btn).toHaveClass('fave')
+    expect(btn).toHaveClass('is-fave')
+  })
 })

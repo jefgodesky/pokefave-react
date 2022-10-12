@@ -1,6 +1,7 @@
 import React, { ReactElement, useRef, MutableRefObject } from 'react'
 import useOnScreen from '../../hooks/use-on-screen'
 import PokeData from '../../data/pokedeata'
+import Fave from '../Fave/Fave'
 import PokemonTypeIcon from '../PokemonTypeIcon/PokemonTypeIcon'
 
 interface PokemonProps {
@@ -9,7 +10,7 @@ interface PokemonProps {
 }
 
 function Pokemon ({ data, load }: PokemonProps): ReactElement {
-  const { loaded, pokedex, name, image, types } = data
+  const { loaded, pokedex, name, image, types, isFavorite } = data
   const ref = useRef<HTMLElement>() as MutableRefObject<HTMLElement>
   const isVisible = useOnScreen(ref)
   if (isVisible && !loaded) load(data)
@@ -18,6 +19,7 @@ function Pokemon ({ data, load }: PokemonProps): ReactElement {
   return (
     <article ref={ref} className={types[0] ?? 'normal'}>
       <img src={image ?? 'pokeball.png'} alt={name} />
+      <Fave active={isFavorite} />
       <p className='pokedex'>#{pokedex.toString().padStart(3, '0')}</p>
       <h2>{name}</h2>
       <ul className='types'>

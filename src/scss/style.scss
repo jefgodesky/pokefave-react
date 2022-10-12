@@ -137,6 +137,29 @@ article {
     }
   }
 
+  button {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    float: right;
+    opacity: 0.3333;
+
+    svg {
+      height: 4em;
+      width: 4em;
+    }
+
+    &.is-fave {
+      opacity: 1;
+
+      svg {
+        fill: #fedf00;
+      }
+    }
+  }
+
   &.bug      { background: colors.$bug;      }
   &.dark     { background: colors.$dark;     }
   &.dragon   { background: colors.$dragon;   }
