@@ -1,7 +1,22 @@
 {
-  "name": "pokefave",
-  "version": "0.1.0",
+  "name": "pokefave-react",
+  "version": "1.0.0",
+  "description": "What's your favorite Pokémon? (React Version)",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jefgodesky/pokefave-react.git"
+  },
+  "homepage": "https://github.com/jefgodesky/pokefave-react",
+  "bugs": {
+    "url": "https://github.com/jefgodesky/pokefave-react/issues"
+  },
+  "author": {
+    "name": "Jason Godesky",
+    "email": "jason@godesky.net",
+    "url": "https://jason.godesky.net"
+  },
+  "license": "GPL-3.0-only",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
